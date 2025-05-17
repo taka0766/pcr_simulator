@@ -141,5 +141,5 @@ MIT License
 
 ## 🙋 Author / 作者
 
-Created by @taka0766
-このプログラムは @taka0766 によって作成されました。
+Created by [taka0766](https://github.com/taka0766)
+このプログラムは [taka0766](https://github.com/taka0766) によって作成されました
