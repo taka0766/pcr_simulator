@@ -22,6 +22,49 @@ You can:
 
 ---
 
+## 🧠 What is the Paradox? / このシミュレーションが示すパラドックス
+
+Even a highly accurate PCR test (e.g., 99% sensitivity and specificity) can produce misleading results when the infection rate is low.  
+たとえば、感度・特異度がともに99%の検査であっても、感染率が1%の場合、陽性判定の多くが**偽陽性**になります。
+
+This is known as the **False Positive Paradox** — when a disease is rare, the number of false positives can exceed true positives.  
+これは **偽陽性のパラドックス**（False Positive Paradox）と呼ばれ、ベイズの定理に基づく直感とのズレを示します。
+
+- High specificity is not enough if prevalence is low.
+- Positive ≠ Infected.
+
+---
+
+## 🧩 Logic Overview / ソースコードのロジック
+
+### 🔹 `run(infection_rate: float)`
+
+- Simulates a population of people undergoing PCR testing.
+- For each person:
+  - Randomly determine if they are infected (based on infection rate)
+  - If infected, test result is positive with `sensitivity`
+  - If not infected, test result is negative with `specificity`
+- Returns:
+  - True Positive, False Positive, False Negative, True Negative counts
+  - Positive Predictive Value (PPV)
+
+このメソッドでは、各人について以下を確率的に判定します：
+
+1. 感染しているか？ → 感染率に従って乱数で判定  
+2. 感染者なら感度、非感染者なら1−特異度で検査結果を決定
+
+---
+
+### 🔹 `display_result(result: dict)`
+
+- Prints results in the terminal.
+- Plots a bar chart of:
+  - True Positive / False Positive / False Negative / True Negative
+
+結果はターミナルに表示され、4分類の人数を色分けした棒グラフで可視化します。
+
+---
+
 ## 🧪 Example Output / 実行例
 
 ```bash
@@ -98,10 +141,5 @@ MIT License
 
 ## 🙋 Author / 作者
 
-Created by \taka0766.
-このプログラムは \taka0766 によって作成されました。
-
-If you find it helpful, feel free to fork or contribute!
-もし役立ったら、ぜひフォークやコントリビュートしてください！
-
-```
+Created by @taka0766
+このプログラムは @taka0766 によって作成されました。
